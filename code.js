@@ -96,7 +96,7 @@ const job = schedule.scheduleJob('01 21 * * *', function () {
 })
   
   //  Updating prices for tomorrow for each zone
-    const job = schedule.scheduleJob('01 12 * * *', function () {
+    const jobTomorrow = schedule.scheduleJob('01 12 * * *', function () {
 
    
 })
