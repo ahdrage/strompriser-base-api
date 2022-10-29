@@ -52,7 +52,7 @@ const powerPriceUrlTomorrowZone5 = `https://playground-norway-power.ffail.win/?z
 
 
 // Updating prices for today for each zone
-const job = schedule.scheduleJob('14 21 * * *', function () {
+const job = schedule.scheduleJob('25 21 * * *', function () {
 
     fetch(powerPriceUrlTomorrowZone1)
         .then(response => response.json())
@@ -72,7 +72,7 @@ const job = schedule.scheduleJob('14 21 * * *', function () {
 
         })
 
-        fetch(powerPriceUrlTomorrowZone2)
+    fetch(powerPriceUrlTomorrowZone2)
         .then(response => response.json())
         .then(data => {
             const firstLine = data
@@ -90,14 +90,163 @@ const job = schedule.scheduleJob('14 21 * * *', function () {
 
         })
 
+    fetch(powerPriceUrlTomorrowZone3)
+        .then(response => response.json())
+        .then(data => {
+            const firstLine = data
+
+            console.log(firstLine);
+
+
+
+            app.get('/powerprice-zone3', (req, res) => {
+                res.set('Access-Control-Allow-Origin', '*');
+                res.status(200).send({
+                    firstLine
+                })
+            })
+
+        })
+
+
+    fetch(powerPriceUrlTomorrowZone4)
+        .then(response => response.json())
+        .then(data => {
+            const firstLine = data
+
+            console.log(firstLine);
+
+
+
+            app.get('/powerprice-zone4', (req, res) => {
+                res.set('Access-Control-Allow-Origin', '*');
+                res.status(200).send({
+                    firstLine
+                })
+            })
+
+        })
+
+    fetch(powerPriceUrlTomorrowZone5)
+        .then(response => response.json())
+        .then(data => {
+            const firstLine = data
+
+            console.log(firstLine);
+
+
+
+            app.get('/powerprice-zone5', (req, res) => {
+                res.set('Access-Control-Allow-Origin', '*');
+                res.status(200).send({
+                    firstLine
+                })
+            })
+
+        })
+
 
 
 
 })
-  
-  //  Updating prices for tomorrow for each zone
-    const jobTomorrow = schedule.scheduleJob('01 12 * * *', function () {
 
-   
-})
 
+
+    // Updating prices for today for each zone
+const jobTomorrow = schedule.scheduleJob('25 21 * * *', function () {
+
+        fetch(powerPriceUrlTomorrowZone1)
+            .then(response => response.json())
+            .then(data => {
+                const firstLine = data
+
+                console.log(firstLine);
+
+
+
+                app.get('/powerprice-zone1-tomorrow', (req, res) => {
+                    res.set('Access-Control-Allow-Origin', '*');
+                    res.status(200).send({
+                        firstLine
+                    })
+                })
+
+            })
+
+        fetch(powerPriceUrlTomorrowZone2)
+            .then(response => response.json())
+            .then(data => {
+                const firstLine = data
+
+                console.log(firstLine);
+
+
+
+                app.get('/powerprice-zone2-tomorrow', (req, res) => {
+                    res.set('Access-Control-Allow-Origin', '*');
+                    res.status(200).send({
+                        firstLine
+                    })
+                })
+
+            })
+
+        fetch(powerPriceUrlTomorrowZone3)
+            .then(response => response.json())
+            .then(data => {
+                const firstLine = data
+
+                console.log(firstLine);
+
+
+
+                app.get('/powerprice-zone3-tomorrow', (req, res) => {
+                    res.set('Access-Control-Allow-Origin', '*');
+                    res.status(200).send({
+                        firstLine
+                    })
+                })
+
+            })
+
+
+        fetch(powerPriceUrlTomorrowZone4)
+            .then(response => response.json())
+            .then(data => {
+                const firstLine = data
+
+                console.log(firstLine);
+
+
+
+                app.get('/powerprice-zone4-tomorrow', (req, res) => {
+                    res.set('Access-Control-Allow-Origin', '*');
+                    res.status(200).send({
+                        firstLine
+                    })
+                })
+
+            })
+
+        fetch(powerPriceUrlTomorrowZone5)
+            .then(response => response.json())
+            .then(data => {
+                const firstLine = data
+
+                console.log(firstLine);
+
+
+
+                app.get('/powerprice-zone5-tomorrow', (req, res) => {
+                    res.set('Access-Control-Allow-Origin', '*');
+                    res.status(200).send({
+                        firstLine
+                    })
+                })
+
+            })
+
+
+
+
+    })
