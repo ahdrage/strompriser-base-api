@@ -53,15 +53,15 @@ console.log(tomorrowsDate);
 
  const powerPriceUrlTodayZone1 = `https://playground-norway-power.ffail.win/?zone=NO1&date=${todaysDate}&key=${keyPowerApi}`
 
-const powerPriceUrlTomorrowZone1 = `https://playground-norway-power.ffail.win/?zone=NO1&date=${tomorrowsDate}&key=${keyPowerApi}`
+/* const powerPriceUrlTomorrowZone1 = `https://playground-norway-power.ffail.win/?zone=NO1&date=${tomorrowsDate}&key=${keyPowerApi}`
 const powerPriceUrlTomorrowZone2 = `https://playground-norway-power.ffail.win/?zone=NO2&date=${tomorrowsDate}&key=${keyPowerApi}`
 const powerPriceUrlTomorrowZone3 = `https://playground-norway-power.ffail.win/?zone=NO3&date=${tomorrowsDate}&key=${keyPowerApi}`
 const powerPriceUrlTomorrowZone4 = `https://playground-norway-power.ffail.win/?zone=NO4&date=${tomorrowsDate}&key=${keyPowerApi}`
-const powerPriceUrlTomorrowZone5 = `https://playground-norway-power.ffail.win/?zone=NO5&date=${tomorrowsDate}&key=${keyPowerApi}` */
+const powerPriceUrlTomorrowZone5 = `https://playground-norway-power.ffail.win/?zone=NO5&date=${tomorrowsDate}&key=${keyPowerApi}`  */
 
 
 // Updating prices for today for each zone
-const job = schedule.scheduleJob('20 21 * * *', function () {
+const job = schedule.scheduleJob('21 21 * * *', function () {
 
     fetch(powerPriceUrlTodayZone1)
         .then(response => response.json())
