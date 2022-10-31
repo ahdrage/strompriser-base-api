@@ -37,10 +37,10 @@ console.log(tomorrowsDate);
 
 // prod 
 
-/*   const powerPriceUrlTodayZone1 = `https://norway-power.ffail.win/?zone=NO1&date=${todaysDate}&key=${keyPowerApi}`                           
+  const powerPriceUrlTodayZone1 = `https://norway-power.ffail.win/?zone=NO1&date=${todaysDate}&key=${keyPowerApi}`                           
   const powerPriceUrlTodayZone2 = `https://norway-power.ffail.win/?zone=NO2&date=${todaysDate}&key=${keyPowerApi}`  
   const powerPriceUrlTodayZone3 = `https://norway-power.ffail.win/?zone=NO3&date=${todaysDate}&key=${keyPowerApi}`  
-  const powerPriceUrlTodayZone4 = `https://norway-power.ffail.win/?zone=NO4&date=${todaysDate}&key=${keyPowerApi}`   */
+  const powerPriceUrlTodayZone4 = `https://norway-power.ffail.win/?zone=NO4&date=${todaysDate}&key=${keyPowerApi}`  
   const powerPriceUrlTodayZone5 = `https://norway-power.ffail.win/?zone=NO5&date=${todaysDate}&key=${keyPowerApi}`   
 
   const powerPriceUrlTomorrowZone1 = `https://norway-power.ffail.win/?zone=NO1&date=${tomorrowsDate}&key=${keyPowerApi}`                           
