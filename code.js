@@ -57,7 +57,7 @@ const powerPriceUrlTomorrowZone5 = `https://playground-norway-power.ffail.win/?z
 
 
 // Updating prices for today for each zone
-const job = schedule.scheduleJob('35 13 * * *', function () {
+const job = schedule.scheduleJob('43 13 * * *', function () {
 
     fetch(powerPriceUrlTodayZone1)
         .then(response => response.json())
@@ -156,7 +156,7 @@ const job = schedule.scheduleJob('35 13 * * *', function () {
 })
  
     // Updating prices for tomorrow for each zone
-const jobTomorrow = schedule.scheduleJob('35 13 * * *', function () {
+const jobTomorrow = schedule.scheduleJob('43 13 * * *', function () {
 
         fetch(powerPriceUrlTomorrowZone1)
             .then(response => response.json())
