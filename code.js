@@ -35,14 +35,20 @@ console.log(tomorrowsDate);
 
 // prod 
 
-  const powerPriceUrlTomorrowZone1 = `https://norway-power.ffail.win?zone=NO1&date=${tomorrowsDate}&key=${keyPowerApi}` 
-  const powerPriceUrlTomorrowZone2 = `https://norway-power.ffail.win?zone=NO2&date=${tomorrowsDate}&key=${keyPowerApi}`  
-  const powerPriceUrlTomorrowZone3 = `https://norway-power.ffail.win?zone=NO3&date=${tomorrowsDate}&key=${keyPowerApi}`  
-  const powerPriceUrlTomorrowZone4 = `https://norway-power.ffail.win?zone=NO4&date=${tomorrowsDate}&key=${keyPowerApi}`  
-  const powerPriceUrlTomorrowZone5 = `https://norway-power.ffail.win?zone=NO5&date=${tomorrowsDate}&key=${keyPowerApi}`   
+  const powerPriceUrlTodayZone1 = `https://norway-power.ffail.win/?zone=NO1&date=${todaysDate}&key=${keyPowerApi}`                           
+  const powerPriceUrlTodayZone2 = `https://norway-power.ffail.win/?zone=NO2&date=${todaysDate}&key=${keyPowerApi}`  
+  const powerPriceUrlTodayZone3 = `https://norway-power.ffail.win/?zone=NO3&date=${todaysDate}&key=${keyPowerApi}`  
+  const powerPriceUrlTodayZone4 = `https://norway-power.ffail.win/?zone=NO4&date=${todaysDate}&key=${keyPowerApi}`  
+  const powerPriceUrlTodayZone5 = `https://norway-power.ffail.win/?zone=NO5&date=${todaysDate}&key=${keyPowerApi}`   
+
+  const powerPriceUrlTomorrowZone1 = `https://norway-power.ffail.win/?zone=NO1&date=${tomorrowsDate}&key=${keyPowerApi}`                           
+  const powerPriceUrlTomorrowZone2 = `https://norway-power.ffail.win/?zone=NO2&date=${tomorrowsDate}&key=${keyPowerApi}`  
+  const powerPriceUrlTomorrowZone3 = `https://norway-power.ffail.win/?zone=NO3&date=${tomorrowsDate}&key=${keyPowerApi}`  
+  const powerPriceUrlTomorrowZone4 = `https://norway-power.ffail.win/?zone=NO4&date=${tomorrowsDate}&key=${keyPowerApi}`  
+  const powerPriceUrlTomorrowZone5 = `https://norway-power.ffail.win/?zone=NO5&date=${tomorrowsDate}&key=${keyPowerApi}`  
 
 // test
-
+                                 
 /* const powerPriceUrlTomorrowZone1 = `https://playground-norway-power.ffail.win/?zone=NO1&date=${tomorrowsDate}&key=${keyPowerApi}`
 const powerPriceUrlTomorrowZone2 = `https://playground-norway-power.ffail.win/?zone=NO2&date=${tomorrowsDate}&key=${keyPowerApi}`
 const powerPriceUrlTomorrowZone3 = `https://playground-norway-power.ffail.win/?zone=NO3&date=${tomorrowsDate}&key=${keyPowerApi}`
@@ -51,9 +57,9 @@ const powerPriceUrlTomorrowZone5 = `https://playground-norway-power.ffail.win/?z
 
 
 // Updating prices for today for each zone
-const job = schedule.scheduleJob('01 23 * * *', function () {
+const job = schedule.scheduleJob('25 09 * * *', function () {
 
-    fetch(powerPriceUrlTomorrowZone1)
+    fetch(powerPriceUrlTodayZone1)
         .then(response => response.json())
         .then(data => {
             const firstLine = data
@@ -71,7 +77,7 @@ const job = schedule.scheduleJob('01 23 * * *', function () {
 
         })
 
-    fetch(powerPriceUrlTomorrowZone2)
+    fetch(powerPriceUrlTodayZone2)
         .then(response => response.json())
         .then(data => {
             const firstLine = data
@@ -89,7 +95,7 @@ const job = schedule.scheduleJob('01 23 * * *', function () {
 
         })
 
-    fetch(powerPriceUrlTomorrowZone3)
+    fetch(powerPriceUrlTodayZone3)
         .then(response => response.json())
         .then(data => {
             const firstLine = data
@@ -108,7 +114,7 @@ const job = schedule.scheduleJob('01 23 * * *', function () {
         })
 
 
-    fetch(powerPriceUrlTomorrowZone4)
+    fetch(powerPriceUrlTodayZone4)
         .then(response => response.json())
         .then(data => {
             const firstLine = data
@@ -126,7 +132,7 @@ const job = schedule.scheduleJob('01 23 * * *', function () {
 
         })
 
-    fetch(powerPriceUrlTomorrowZone5)
+    fetch(powerPriceUrlTodayZone5)
         .then(response => response.json())
         .then(data => {
             const firstLine = data
@@ -148,7 +154,7 @@ const job = schedule.scheduleJob('01 23 * * *', function () {
 
 
 })
-
+ 
     // Updating prices for tomorrow for each zone
 const jobTomorrow = schedule.scheduleJob('01 13 * * *', function () {
 
