@@ -12,7 +12,7 @@ const keyPowerApi = process.env.KEY
 const d = new Date();
 
 const currentHour = d.getHours()
-const dd = d.getDate();
+const dd = "0" + d.getDate();
 const mm = d.getMonth() + 1;
 const yy = d.getFullYear();
 
@@ -61,7 +61,7 @@ const powerPriceUrlTomorrowZone5 = `https://playground-norway-power.ffail.win/?z
 
 
 // Updating prices for today for each zone
-const job = schedule.scheduleJob('01 13 * * *', function () {
+const job = schedule.scheduleJob('17 13 * * *', function () {
 
     fetch(powerPriceUrlTodayZone1)
         .then(response => response.json())
@@ -160,7 +160,7 @@ const job = schedule.scheduleJob('01 13 * * *', function () {
 })
  
     // Updating prices for tomorrow for each zone
-const jobTomorrow = schedule.scheduleJob('02 13 * * *', function () {
+const jobTomorrow = schedule.scheduleJob('17 13 * * *', function () {
 
         fetch(powerPriceUrlTomorrowZone1)
             .then(response => response.json())
