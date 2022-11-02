@@ -9,6 +9,8 @@ app.listen(process.env.PORT || PORT, () => console.log("its running on port " + 
 
 const keyPowerApi = process.env.KEY
 
+
+
 const d = new Date();
 
 const currentHour = d.getHours()
@@ -16,7 +18,7 @@ const dd = "0" + d.getDate();
 const mm = d.getMonth() + 1;
 const yy = d.getFullYear();
 
-todaysDate = yy + "-" + mm + "-" + dd
+let todaysDate = yy + "-" + mm + "-" + dd
 
 const todayInMilliSeconds = new Date().getTime()
 const milliSecondsInOneDay = 24 * 60 * 60 * 1000
@@ -61,9 +63,9 @@ const powerPriceUrlTomorrowZone5 = `https://playground-norway-power.ffail.win/?z
 
 
 // Updating prices for today for each zone
-const job = schedule.scheduleJob('01 23 * * *', function () {
+const job = schedule.scheduleJob('05 14 * * *', function () {
 
-    fetch(powerPriceUrlTomorrowZone1)
+    fetch(powerPriceUrlTodayZone1)
         .then(response => response.json())
         .then(data => {
             const firstLine = data
@@ -160,7 +162,7 @@ const job = schedule.scheduleJob('01 23 * * *', function () {
 })
  
     // Updating prices for tomorrow for each zone
-const jobTomorrow = schedule.scheduleJob('01 13 * * *', function () {
+const jobTomorrow = schedule.scheduleJob('05 14 * * *', function () {
 
         fetch(powerPriceUrlTomorrowZone1)
             .then(response => response.json())
