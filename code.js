@@ -12,76 +12,66 @@ const keyPowerApi = process.env.KEY
 
 
 
-function tomorrowsDate() {
-
-    const todayInMilliSeconds = new Date().getTime()
-const milliSecondsInOneDay = 24 * 60 * 60 * 1000
-const tomorrowInMilliseconds = todayInMilliSeconds + milliSecondsInOneDay
-const tomorrow = new Date(tomorrowInMilliseconds)
-const tomorrowDayOnly = "0" + tomorrow.getDate()
-const tomorrowMonthOnly = tomorrow.getMonth() + 1;
-const tomorrowYearOnly = tomorrow.getFullYear();
-const tomorrowsDate = tomorrowYearOnly + "-" + tomorrowMonthOnly + "-" + tomorrowDayOnly
-
-return tomorrowsDate
-
-
-}
-
-function todaysDate() {
-
-    const d = new Date();
-    const currentHour = d.getHours()
-    const checkDate = d.getDate()
-    let dd = "0" + d.getDate()
-    const mm = d.getMonth() + 1
-    const yy = d.getFullYear()
-
-    let todaysDate = yy + "-" + mm + "-" + dd
-    return todaysDate
-
-}
-
-
-
-const dateUpdate = schedule.scheduleJob('00 04 * * *', function () {
-    todaysDate()
-    tomorrowsDate()
-  
-    console.log(tomorrowsDate());
-
-})  
-
 
 
 
 // prod 
 
-const powerPriceUrlTodayZone1 = `https://norway-power.ffail.win/?zone=NO1&date=${tomorrowsDate()}&key=${keyPowerApi}`
+/* 
 const powerPriceUrlTodayZone2 = `https://norway-power.ffail.win/?zone=NO2&date=${tomorrowsDate()}&key=${keyPowerApi}`
 const powerPriceUrlTodayZone3 = `https://norway-power.ffail.win/?zone=NO3&date=${tomorrowsDate()}&key=${keyPowerApi}`
 const powerPriceUrlTodayZone4 = `https://norway-power.ffail.win/?zone=NO4&date=${tomorrowsDate()}&key=${keyPowerApi}`
 const powerPriceUrlTodayZone5 = `https://norway-power.ffail.win/?zone=NO5&date=${tomorrowsDate()}&key=${keyPowerApi}`
 
-const powerPriceUrlTomorrowZone1 = `https://norway-power.ffail.win/?zone=NO1&date=${tomorrowsDate()}&key=${keyPowerApi}`
+
 const powerPriceUrlTomorrowZone2 = `https://norway-power.ffail.win/?zone=NO2&date=${tomorrowsDate()}&key=${keyPowerApi}`
 const powerPriceUrlTomorrowZone3 = `https://norway-power.ffail.win/?zone=NO3&date=${tomorrowsDate()}&key=${keyPowerApi}`
 const powerPriceUrlTomorrowZone4 = `https://norway-power.ffail.win/?zone=NO4&date=${tomorrowsDate()}&key=${keyPowerApi}`
-const powerPriceUrlTomorrowZone5 = `https://norway-power.ffail.win/?zone=NO5&date=${tomorrowsDate()}&key=${keyPowerApi}`
+const powerPriceUrlTomorrowZone5 = `https://norway-power.ffail.win/?zone=NO5&date=${tomorrowsDate()}&key=${keyPowerApi}` */
 
 // test
 
-/*  const powerPriceUrlTodayZone1 = `https://playground-norway-power.ffail.win/?zone=NO1&date=${todaysDate()}&key=${keyPowerApi}`
+/*  
 
-const powerPriceUrlTomorrowZone1 = `https://playground-norway-power.ffail.win/?zone=NO1&date=${tomorrowsDate()}&key=${keyPowerApi}`
+
 const powerPriceUrlTomorrowZone2 = `https://playground-norway-power.ffail.win/?zone=NO2&date=${tomorrowsDate()}&key=${keyPowerApi}`
 const powerPriceUrlTomorrowZone3 = `https://playground-norway-power.ffail.win/?zone=NO3&date=${tomorrowsDate()}&key=${keyPowerApi}`
 const powerPriceUrlTomorrowZone4 = `https://playground-norway-power.ffail.win/?zone=NO4&date=${tomorrowsDate()}&key=${keyPowerApi}`
-const powerPriceUrlTomorrowZone5 = `https://playground-norway-power.ffail.win/?zone=NO5&date=${tomorrowsDate()}&key=${keyPowerApi}` */ 
+const powerPriceUrlTomorrowZone5 = `https://playground-norway-power.ffail.win/?zone=NO5&date=${tomorrowsDate()}&key=${keyPowerApi}` */
 
 
 // Updating prices for today for each zone
-const job = schedule.scheduleJob('01 23 * * *', function () {
+const job = schedule.scheduleJob('17 18 * * *', function () {
+
+    function todaysDate() {
+
+        const d = new Date();
+        const currentHour = d.getHours()
+        const checkDate = d.getDate()
+        let ddIfDateIsNotTwoDigits = ""
+        let todaysDate = ""
+        const dd = d.getDate()
+        const mm = d.getMonth() + 1
+        const yy = d.getFullYear()
+        if (dd < 10) {
+            ddIfDateIsNotTwoDigits = "0" + dd
+            todaysDate = yy + "-" + mm + "-" + ddIfDateIsNotTwoDigits
+            return todaysDate
+        }
+    
+        else {
+            todaysDate = yy + "-" + mm + "-" + dd
+            return todaysDate
+        }
+        
+    }
+
+    console.log(todaysDate());
+
+    // const powerPriceUrlTodayZone1 = `https://playground-norway-power.ffail.win/?zone=NO1&date=${todaysDate()}&key=${keyPowerApi}`
+     const powerPriceUrlTodayZone1 = `https://norway-power.ffail.win/?zone=NO1&date=${todaysDate()}&key=${keyPowerApi}`
+
+
 
     fetch(powerPriceUrlTodayZone1)
         .then(response => response.json())
@@ -180,7 +170,42 @@ const job = schedule.scheduleJob('01 23 * * *', function () {
 })
 
 // Updating prices for tomorrow for each zone
-const jobTomorrow = schedule.scheduleJob('01 13 * * *', function () {
+const jobTomorrow = schedule.scheduleJob('17 18 * * *', function () {
+
+    function tomorrowsDate() {
+
+        const todayInMilliSeconds = new Date().getTime()
+        const milliSecondsInOneDay = 24 * 60 * 60 * 1000
+        const tomorrowInMilliseconds = todayInMilliSeconds + milliSecondsInOneDay
+        const tomorrow = new Date(tomorrowInMilliseconds)
+        const tomorrowDayOnly = tomorrow.getDate()
+        let tomorrowDayOnlyIfDateIsNotTwoDigits = "" 
+        let tomorrowsDate = "" 
+        const tomorrowMonthOnly = tomorrow.getMonth() + 1
+        const tomorrowYearOnly = tomorrow.getFullYear()
+
+        if (tomorrowDayOnly < 10) {
+            tomorrowDayOnlyIfDateIsNotTwoDigits = "0" + tomorrowDayOnly
+            tomorrowsDate = tomorrowYearOnly + "-" + tomorrowMonthOnly + "-" + tomorrowDayOnlyIfDateIsNotTwoDigits
+            return tomorrowsDate 
+        }
+
+        else {
+            const tomorrowsDate = tomorrowYearOnly + "-" + tomorrowMonthOnly + "-" + tomorrowDayOnly
+            return tomorrowsDate
+
+        }
+
+    }
+
+   
+
+    console.log(tomorrowsDate());
+
+    const powerPriceUrlTomorrowZone1 = `https://playground-norway-power.ffail.win/?zone=NO1&date=${tomorrowsDate()}&key=${keyPowerApi}`
+
+    //  const powerPriceUrlTomorrowZone1 = `https://norway-power.ffail.win/?zone=NO1&date=${tomorrowsDate()}&key=${keyPowerApi}`
+
 
     fetch(powerPriceUrlTomorrowZone1)
         .then(response => response.json())
