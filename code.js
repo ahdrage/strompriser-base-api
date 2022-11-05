@@ -41,7 +41,7 @@ const powerPriceUrlTomorrowZone5 = `https://playground-norway-power.ffail.win/?z
 
 
 // Updating prices for today for each zone
-const job = schedule.scheduleJob('01 23 * * *', function () {
+const job = schedule.scheduleJob('57 23 * * *', function () {
 
 /*     function todaysDate() {
 
