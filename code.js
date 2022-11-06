@@ -10,11 +10,6 @@ app.listen(process.env.PORT || PORT, () => console.log("its running on port " + 
 const keyPowerApi = process.env.KEY
 
 
-
-
-
-
-
 // prod 
 
 /* 
@@ -41,7 +36,7 @@ const powerPriceUrlTomorrowZone5 = `https://playground-norway-power.ffail.win/?z
 
 
 // Updating prices for today for each zone
-const job = schedule.scheduleJob('57 23 * * *', function () {
+const job = schedule.scheduleJob('02 23 * * *', function () {
 
 /*     function todaysDate() {
 
