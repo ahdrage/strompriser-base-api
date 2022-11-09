@@ -12,7 +12,7 @@ const keyPowerApi = process.env.KEY
 
 
 // Updating prices for today for each zone
-const job = schedule.scheduleJob('03 23 * * *', function () {
+const job = schedule.scheduleJob('02 23 * * *', function () {
 
     /*     function todaysDate() {
     
@@ -63,10 +63,10 @@ const job = schedule.scheduleJob('03 23 * * *', function () {
 
     }
 
-
+    console.log(tomorrowsDate());
 
     // prod
-    
+
     const powerPriceUrlTodayZone1 = `https://norway-power.ffail.win/?zone=NO1&date=${tomorrowsDate()}&key=${keyPowerApi}`
     const powerPriceUrlTodayZone2 = `https://norway-power.ffail.win/?zone=NO2&date=${tomorrowsDate()}&key=${keyPowerApi}`
     const powerPriceUrlTodayZone3 = `https://norway-power.ffail.win/?zone=NO3&date=${tomorrowsDate()}&key=${keyPowerApi}`
@@ -76,11 +76,11 @@ const job = schedule.scheduleJob('03 23 * * *', function () {
 
     // test
 
- /*    const powerPriceUrlTodayZone1 = `https://playground-norway-power.ffail.win/?zone=NO1&date=${tomorrowsDate()}&key=${keyPowerApi}`
-    const powerPriceUrlTodayZone2 = `https://playground-norway-power.ffail.win/?zone=NO2&date=${tomorrowsDate()}&key=${keyPowerApi}`
-    const powerPriceUrlTodayZone3 = `https://playground-norway-power.ffail.win/?zone=NO3&date=${tomorrowsDate()}&key=${keyPowerApi}`
-    const powerPriceUrlTodayZone4 = `https://playground-norway-power.ffail.win/?zone=NO4&date=${tomorrowsDate()}&key=${keyPowerApi}`
-    const powerPriceUrlTodayZone5 = `https://playground-norway-power.ffail.win/?zone=NO5&date=${tomorrowsDate()}&key=${keyPowerApi}` */
+    /*    const powerPriceUrlTodayZone1 = `https://playground-norway-power.ffail.win/?zone=NO1&date=${tomorrowsDate()}&key=${keyPowerApi}`
+       const powerPriceUrlTodayZone2 = `https://playground-norway-power.ffail.win/?zone=NO2&date=${tomorrowsDate()}&key=${keyPowerApi}`
+       const powerPriceUrlTodayZone3 = `https://playground-norway-power.ffail.win/?zone=NO3&date=${tomorrowsDate()}&key=${keyPowerApi}`
+       const powerPriceUrlTodayZone4 = `https://playground-norway-power.ffail.win/?zone=NO4&date=${tomorrowsDate()}&key=${keyPowerApi}`
+       const powerPriceUrlTodayZone5 = `https://playground-norway-power.ffail.win/?zone=NO5&date=${tomorrowsDate()}&key=${keyPowerApi}` */
 
 
 
@@ -110,7 +110,7 @@ const job = schedule.scheduleJob('03 23 * * *', function () {
         .then(data => {
             const firstLine = data
 
-            console.log(firstLine);
+
 
 
 
@@ -128,7 +128,7 @@ const job = schedule.scheduleJob('03 23 * * *', function () {
         .then(data => {
             const firstLine = data
 
-            console.log(firstLine);
+
 
 
 
@@ -147,7 +147,7 @@ const job = schedule.scheduleJob('03 23 * * *', function () {
         .then(data => {
             const firstLine = data
 
-            console.log(firstLine);
+
 
 
 
@@ -165,7 +165,7 @@ const job = schedule.scheduleJob('03 23 * * *', function () {
         .then(data => {
             const firstLine = data
 
-            console.log(firstLine);
+
 
 
 
@@ -218,19 +218,19 @@ const jobTomorrow = schedule.scheduleJob('02 13 * * *', function () {
 
     // dev
 
-  /*   const powerPriceUrlTomorrowZone1 = `https://playground-norway-power.ffail.win/?zone=NO1&date=${tomorrowsDate()}&key=${keyPowerApi}`
+    /* const powerPriceUrlTomorrowZone1 = `https://playground-norway-power.ffail.win/?zone=NO1&date=${tomorrowsDate()}&key=${keyPowerApi}`
     const powerPriceUrlTomorrowZone2 = `https://playground-norway-power.ffail.win/?zone=NO2&date=${tomorrowsDate()}&key=${keyPowerApi}`
     const powerPriceUrlTomorrowZone3 = `https://playground-norway-power.ffail.win/?zone=NO3&date=${tomorrowsDate()}&key=${keyPowerApi}`
     const powerPriceUrlTomorrowZone4 = `https://playground-norway-power.ffail.win/?zone=NO4&date=${tomorrowsDate()}&key=${keyPowerApi}`
     const powerPriceUrlTomorrowZone5 = `https://playground-norway-power.ffail.win/?zone=NO5&date=${tomorrowsDate()}&key=${keyPowerApi}` */
 
     // prod
-        
-        const powerPriceUrlTomorrowZone1 = `https://norway-power.ffail.win/?zone=NO1&date=${tomorrowsDate()}&key=${keyPowerApi}`
-        const powerPriceUrlTomorrowZone2 = `https://norway-power.ffail.win/?zone=NO2&date=${tomorrowsDate()}&key=${keyPowerApi}`
-        const powerPriceUrlTomorrowZone3 = `https://norway-power.ffail.win/?zone=NO3&date=${tomorrowsDate()}&key=${keyPowerApi}`
-        const powerPriceUrlTomorrowZone4 = `https://norway-power.ffail.win/?zone=NO4&date=${tomorrowsDate()}&key=${keyPowerApi}`
-        const powerPriceUrlTomorrowZone5 = `https://norway-power.ffail.win/?zone=NO5&date=${tomorrowsDate()}&key=${keyPowerApi}`
+
+    const powerPriceUrlTomorrowZone1 = `https://norway-power.ffail.win/?zone=NO1&date=${tomorrowsDate()}&key=${keyPowerApi}`
+    const powerPriceUrlTomorrowZone2 = `https://norway-power.ffail.win/?zone=NO2&date=${tomorrowsDate()}&key=${keyPowerApi}`
+    const powerPriceUrlTomorrowZone3 = `https://norway-power.ffail.win/?zone=NO3&date=${tomorrowsDate()}&key=${keyPowerApi}`
+    const powerPriceUrlTomorrowZone4 = `https://norway-power.ffail.win/?zone=NO4&date=${tomorrowsDate()}&key=${keyPowerApi}`
+    const powerPriceUrlTomorrowZone5 = `https://norway-power.ffail.win/?zone=NO5&date=${tomorrowsDate()}&key=${keyPowerApi}`
 
 
 
