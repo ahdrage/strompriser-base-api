@@ -12,7 +12,7 @@ const keyPowerApi = process.env.KEY
 
 
 // Updating prices for today for each zone
-const job = schedule.scheduleJob('02 23 * * *', function () {
+const job = schedule.scheduleJob('57 23 * * *', function () {
 
     /*     function todaysDate() {
     
@@ -62,7 +62,7 @@ const job = schedule.scheduleJob('02 23 * * *', function () {
         }
 
     }
-
+    
     console.log(tomorrowsDate());
 
     // prod
