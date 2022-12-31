@@ -24,57 +24,6 @@ let powerPriceTomorrowZone5 = null;
 
 // Updating prices for today for each zone
 const job = schedule.scheduleJob("01 23 * * *", function () {
-  /*     function todaysDate() {
-    
-            const d = new Date();
-            const currentHour = d.getHours()
-            const checkDate = d.getDate()
-            let ddIfDateIsNotTwoDigits = ""
-            let todaysDate = ""
-            const dd = d.getDate()
-            const mm = d.getMonth() + 1
-            const yy = d.getFullYear()
-            if (dd < 10) {
-                ddIfDateIsNotTwoDigits = "0" + dd
-                todaysDate = yy + "-" + mm + "-" + ddIfDateIsNotTwoDigits
-                return todaysDate
-            }
-        
-            else {
-                todaysDate = yy + "-" + mm + "-" + dd
-                return todaysDate
-            }
-            
-        } */
-
-  /*    function tomorrowsDate() {
-
-        const todayInMilliSeconds = new Date().getTime()
-        const milliSecondsInOneDay = 24 * 60 * 60 * 1000
-        const tomorrowInMilliseconds = todayInMilliSeconds + milliSecondsInOneDay
-        const tomorrow = new Date(tomorrowInMilliseconds)
-        const tomorrowDayOnly = tomorrow.getDate()
-        let tomorrowDayOnlyIfDateIsNotTwoDigits = ""
-        let tomorrowsDate = ""
-        const tomorrowMonthOnly = tomorrow.getMonth() + 1
-        const tomorrowYearOnly = tomorrow.getFullYear()
-
-        if (tomorrowDayOnly < 10) {
-            tomorrowDayOnlyIfDateIsNotTwoDigits = "0" + tomorrowDayOnly
-            tomorrowsDate = tomorrowYearOnly + "-" + tomorrowMonthOnly + "-" + tomorrowDayOnlyIfDateIsNotTwoDigits
-            return tomorrowsDate
-        }
-
-        else {
-            const tomorrowsDate = tomorrowYearOnly + "-" + tomorrowMonthOnly + "-" + tomorrowDayOnly
-            return tomorrowsDate
-
-        }
-
-    }
-
-    console.log(tomorrowsDate()); */
-
   function tomorrowsDate() {
     const todayInMilliSeconds = new Date().getTime();
     const milliSecondsInOneDay = 24 * 60 * 60 * 1000;
@@ -195,7 +144,7 @@ app.get("/powerprice-zone5", (req, res) => {
 });
 
 // Updating prices for tomorrow for each zone
-const jobTomorrow = schedule.scheduleJob("33 13 * * *", function () {
+const jobTomorrow = schedule.scheduleJob("01 13 * * *", function () {
   function tomorrowsDate() {
     const todayInMilliSeconds = new Date().getTime();
     const milliSecondsInOneDay = 24 * 60 * 60 * 1000;
